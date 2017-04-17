@@ -1,0 +1,8 @@
+{
+  "jwt": {
+    "secret": "InsertJsonWebTokenSecretHere"
+  },
+  "server": {
+    "port": 3000
+  }
+}
