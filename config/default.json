@@ -4,5 +4,10 @@
   },
   "server": {
     "port": 3000
+  },
+  "database": {
+    "name": "database",
+    "username": "username",
+    "password": "password"
   }
 }
