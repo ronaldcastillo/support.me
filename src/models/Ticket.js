@@ -1,8 +1,9 @@
 const Sequelize = require('sequelize')
 const db = require('../../config/db')
 const User = require('./User')
+const TimestampAttributes = require('./TimestampAttributes')
 
-const Ticket = db.define('ticket', {
+const Ticket = db.define('ticket', Object.assign({
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -27,18 +28,7 @@ const Ticket = db.define('ticket', {
       model: User,
       key: 'id'
     }
-  },
-  createdAt: {
-    type: Sequelize.DATE,
-    defaultValue: Sequelize.NOW,
-    field: 'created_at'
-  },
-  updatedAt: {
-    type: Sequelize.DATE,
-    defaultValue: Sequelize.NOW,
-    field: 'updated_at',
-    allowNull: true
   }
-})
+}, TimestampAttributes))
 
 module.exports = Ticket

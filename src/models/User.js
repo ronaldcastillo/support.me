@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize')
 const db = require('../../config/db')
+const TimestampAttributes = require('./TimestampAttributes')
 
-const User = db.define('user', {
+const User = db.define('user', Object.assign({
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -20,18 +21,7 @@ const User = db.define('user', {
     validate: {
       notEmpty: true
     }
-  },
-  createdAt: {
-  type: Sequelize.DATE,
-    defaultValue: Sequelize.NOW,
-    field: 'created_at'
-  },
-  updatedAt: {
-    type: Sequelize.DATE,
-      defaultValue: Sequelize.NOW,
-      field: 'updated_at',
-      allowNull: true
   }
-})
+}, TimestampAttributes))
 
 module.exports = User
